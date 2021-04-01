@@ -4,8 +4,10 @@ import com.example.VirtualMarket.ProductPackage.Product;
 import com.example.VirtualMarket.VisitorPackage.Visitor;
 import lombok.NonNull;
 
+import javax.persistence.CascadeType;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.List;
 
 @Entity
@@ -14,14 +16,14 @@ public class User extends Visitor {
     @NonNull
     private String userPhoneNumber;
     @NonNull
-    private String UserPassword;
-    @ElementCollection
+    private String userPassword;
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Product> products;
 
     public User(String userPhoneNumber, String UserPassword) {
         super();
         this.userPhoneNumber = userPhoneNumber;
-        this.UserPassword = UserPassword;
+        this.userPassword = UserPassword;
     }
 
     public User() {
@@ -37,11 +39,11 @@ public class User extends Visitor {
     }
 
     public String getUserPassword() {
-        return UserPassword;
+        return userPassword;
     }
 
     public void setUserPassword(String password) {
-        this.UserPassword = password;
+        this.userPassword = password;
     }
 
     public List<Product> getProducts() {
@@ -56,7 +58,7 @@ public class User extends Visitor {
     public String toString() {
         return "User{" +
                 "userPhoneNumber='" + userPhoneNumber + '\'' +
-                ", UserPassword='" + UserPassword + '\'' +
+                ", UserPassword='" + userPassword + '\'' +
                 ", products=" + products +
                 ", ID=" + super.ID +
                 '}';

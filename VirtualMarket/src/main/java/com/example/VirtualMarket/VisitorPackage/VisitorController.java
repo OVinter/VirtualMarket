@@ -10,12 +10,4 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(path = "/api/visitors")
 public class VisitorController {
 
-    private VisitorService visitorService;
-
-    @Autowired
-    public VisitorController(VisitorService visitorService) {
-        this.visitorService = visitorService;
-    }
-
-
 }
