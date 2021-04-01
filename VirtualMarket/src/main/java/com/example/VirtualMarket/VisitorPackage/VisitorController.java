@@ -10,5 +10,4 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(path = "/api/visitors")
 public class VisitorController {
 
-
 }
