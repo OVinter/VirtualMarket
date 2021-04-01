@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @RequestMapping(path = "/api/visitors")
 public class VisitorController {
 
-    private VisitorService visitorService;
-
     @Autowired
-    public VisitorController(VisitorService visitorService) {
-        this.visitorService = visitorService;
+    private VisitorRepository visitorRepository;
+
+    @GetMapping(path = "/all")
+    public @ResponseBody Iterable<Visitor> getAllVisitors() {
+        return visitorRepository.findAll();
     }
-
-
 }
