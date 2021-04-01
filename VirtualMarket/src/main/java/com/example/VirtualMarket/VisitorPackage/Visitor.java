@@ -1,4 +1,4 @@
-package Entities;
+package com.example.VirtualMarket.VisitorPackage;
 
 import javax.persistence.*;
 

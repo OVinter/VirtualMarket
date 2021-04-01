@@ -1,4 +1,4 @@
-package Entities;
+package com.example.VirtualMarket.ProductPackage;
 
 import lombok.Getter;
 import lombok.Setter;

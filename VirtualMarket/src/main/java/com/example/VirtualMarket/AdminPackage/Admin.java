@@ -1,11 +1,12 @@
-package Entities;
+package com.example.VirtualMarket.AdminPackage;
 
+import com.example.VirtualMarket.VisitorPackage.Visitor;
 import lombok.NonNull;
 
 import javax.persistence.Entity;
 
 @Entity
-public class Admin extends Visitor{
+public class Admin extends Visitor {
 
     @NonNull
     private String adminPhoneNumber;

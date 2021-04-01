@@ -1,7 +1,5 @@
-package Controllers;
+package com.example.VirtualMarket.VisitorPackage;
 
-import AccessingEntities.VisitorRepository;
-import Entities.Visitor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

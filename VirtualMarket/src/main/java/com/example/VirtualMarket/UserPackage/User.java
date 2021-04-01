@@ -1,5 +1,7 @@
-package Entities;
+package com.example.VirtualMarket.UserPackage;
 
+import com.example.VirtualMarket.ProductPackage.Product;
+import com.example.VirtualMarket.VisitorPackage.Visitor;
 import lombok.NonNull;
 
 import javax.persistence.ElementCollection;
@@ -7,7 +9,7 @@ import javax.persistence.Entity;
 import java.util.List;
 
 @Entity
-public class User extends Visitor{
+public class User extends Visitor {
 
     @NonNull
     private String userPhoneNumber;
@@ -56,7 +58,7 @@ public class User extends Visitor{
                 "userPhoneNumber='" + userPhoneNumber + '\'' +
                 ", UserPassword='" + UserPassword + '\'' +
                 ", products=" + products +
-                ", ID=" + ID +
+                ", ID=" + super.ID +
                 '}';
     }
 }
