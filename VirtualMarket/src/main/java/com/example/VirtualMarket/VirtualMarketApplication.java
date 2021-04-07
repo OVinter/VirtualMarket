@@ -14,11 +14,4 @@ public class VirtualMarketApplication {
 		SpringApplication.run(VirtualMarketApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner commandLineRunner(VisitorRepository visitorRepository) {
-		return args -> {
-			Visitor visitor = new Visitor();
-			visitorRepository.save(visitor);
-		};
-	}
 }
