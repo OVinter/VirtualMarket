@@ -13,6 +13,10 @@ public class Visitor {
 
     }
 
+    public Visitor(Long ID) {
+        this.ID = ID;
+    }
+
     public void setID(Long id) {
         this.ID = id;
     }

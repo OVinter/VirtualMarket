@@ -20,6 +20,12 @@ public class Admin extends Visitor {
         this.adminPassword = adminPassword;
     }
 
+    public Admin(Long id, String adminPhoneNumber, String adminPassword) {
+        super(id);
+        this.adminPhoneNumber = adminPhoneNumber;
+        this.adminPassword = adminPassword;
+    }
+
     public Admin() {
         super();
     }
