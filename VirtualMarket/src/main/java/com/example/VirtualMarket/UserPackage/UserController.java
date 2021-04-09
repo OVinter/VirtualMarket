@@ -48,4 +48,26 @@ public class UserController {
         return userService.deleteUser(id);
     }
 
+    @PostMapping("/{idUser}/products")
+    public Product addProduct(@PathVariable Long idUser, @RequestBody Product product) {
+        return userService.addProduct(idUser, product);
+    }
+
+    @GetMapping("/{idUser}/products/{idProduct}")
+    public Product getProduct(@PathVariable Long idUser, @PathVariable Long idProduct) {
+        return userService.getProduct(idUser, idProduct);
+    }
+
+    @PutMapping("/{idUser}/products/{idProduct}")
+    public Product modifyProduct(@PathVariable Long idUser,
+                                 @PathVariable Long idProduct,
+                                 @RequestBody Product product) {
+        return userService.modifyProduct(idUser, idProduct, product);
+    }
+
+    @DeleteMapping("/{idUser}/products/{idProduct}")
+    public boolean deleteProduct(@PathVariable Long idUser, @PathVariable Long idProduct) {
+        return userService.deleteProduct(idUser, idProduct);
+    }
+
 }
