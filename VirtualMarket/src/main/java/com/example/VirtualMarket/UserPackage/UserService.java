@@ -1,9 +1,11 @@
 package com.example.VirtualMarket.UserPackage;
 
 import com.example.VirtualMarket.ProductPackage.Product;
+import com.example.VirtualMarket.ProductPackage.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -11,10 +13,12 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, ProductRepository productRepository) {
         this.userRepository = userRepository;
+        this.productRepository = productRepository;
     }
 
     public List<User> getAllUsers() {
@@ -68,5 +72,83 @@ public class UserService {
             return true;
         }
         return false;
+    }
+
+    public Product addProduct(Long id, Product product) {
+        Optional<User> u = userRepository.findById(id);
+        User user;
+        List<Product> products = new ArrayList<Product>();
+        if(u.isPresent()) {
+            user = u.get();
+            if (!user.getProducts().isEmpty()) {
+                products = user.getProducts();
+            }
+            products.add(product);
+            user.setProducts(products);
+            return productRepository.save(product);
+        }
+        throw new IllegalStateException("user with id: " + id + " not exist");
+    }
+
+
+    public Product getProduct(Long idUser, Long idProduct) {
+        Optional<User> u = userRepository.findById(idUser);
+        User user;
+        Optional<Product> p;
+        if(u.isPresent()) {
+            p = productRepository.findById(idProduct);
+            if(p.isPresent())
+                return p.get();
+            throw new IllegalStateException("product with id: " + idProduct + " not exist");
+        }
+        throw new IllegalStateException("user with id: " + idUser + " not exist");
+    }
+
+    public Product modifyProduct(Long idUser, Long idProduct, Product product) {
+        Optional<User> u = userRepository.findById(idUser);
+        User user;
+        Product modifyProduct;
+        Optional<Product> p;
+        if(u.isPresent()) {
+            user = u.get();
+            p = productRepository.findById(idProduct);
+            if (p.isPresent()) {
+                modifyProduct = p.get();
+                if (product.getProductName() != null)
+                    modifyProduct.setProductName(product.getProductName());
+                if (product.getProductCategory() != null)
+                    modifyProduct.setProductCategory(product.getProductCategory());
+                if (product.getProductDescription() != null)
+                    modifyProduct.setProductDescription(product.getProductDescription());
+                if (product.getProductPhoto() != null)
+                    modifyProduct.setProductPhoto(product.getProductPhoto());
+                return productRepository.save(modifyProduct);
+            }
+            throw new IllegalStateException("product with id: " + idProduct + " not exist");
+        }
+        throw new IllegalStateException("user with id: " + idUser + " not exist");
+    }
+
+    public boolean deleteProduct(Long idUser, Long idProduct) {
+        Optional<User> u = userRepository.findById(idUser);
+        Optional<Product> p;
+        Product product;
+        User user;
+        List<Product> products;
+        if(u.isPresent()) {
+            user = u.get();
+            p = productRepository.findById(idProduct);
+            if(p.isPresent()) {
+                product = p.get();
+                products = user.getProducts();
+                products.remove(product);
+                user.setProducts(products);
+                userRepository.save(user);
+                productRepository.delete(product);
+                return true;
+            }
+            throw new IllegalStateException("product with id: " + idProduct + " not exist");
+        }
+        throw new IllegalStateException("user with id: " + idUser + " not exist");
     }
 }
