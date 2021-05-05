@@ -30,9 +30,12 @@ public class UserConfig {
         l.add(p);
 
         return args -> {
-            User u = new User(100L, "0010", passwordEncoder.encode("admin"), l, true);
+            User u = new User();
+            u.setUserPhoneNumber("9999");
+            u.setUserPassword(passwordEncoder.encode("admin"));
+            u.setActivated(true);
             u.setAuthorities(s);
-            if(userRepository.findOneWithAuthoritiesByUserPhoneNumber("0010").isEmpty()) {
+            if(userRepository.findOneWithAuthoritiesByUserPhoneNumber("9999").isEmpty()) {
                 userRepository.saveAll(
                         List.of(u)
                 );

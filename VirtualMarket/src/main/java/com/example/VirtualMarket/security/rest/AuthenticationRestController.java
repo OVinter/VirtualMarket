@@ -1,7 +1,11 @@
 package com.example.VirtualMarket.security.rest;
 
+import com.example.VirtualMarket.ProductPackage.Product;
+import com.example.VirtualMarket.UserPackage.User;
+import com.example.VirtualMarket.UserPackage.UserRepository;
 import com.example.VirtualMarket.security.jwt.JWTFilter;
 import com.example.VirtualMarket.security.jwt.TokenProvider;
+import com.example.VirtualMarket.security.model.Authority;
 import com.example.VirtualMarket.security.rest.dto.LoginDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.http.HttpHeaders;
@@ -11,6 +15,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +23,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Controller to authenticate users.
@@ -30,13 +39,36 @@ public class AuthenticationRestController {
 
    private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
-   public AuthenticationRestController(TokenProvider tokenProvider, AuthenticationManagerBuilder authenticationManagerBuilder) {
+   private final UserRepository userRepository;
+
+   private PasswordEncoder passwordEncoder;
+
+   public AuthenticationRestController(TokenProvider tokenProvider,
+                                       AuthenticationManagerBuilder authenticationManagerBuilder,
+                                       UserRepository userRepository,
+                                       PasswordEncoder passwordEncoder) {
       this.tokenProvider = tokenProvider;
       this.authenticationManagerBuilder = authenticationManagerBuilder;
+      this.userRepository = userRepository;
+      this.passwordEncoder = passwordEncoder;
+
    }
 
    @PostMapping("/authenticate")
    public ResponseEntity<JWTToken> authorize(@Valid @RequestBody LoginDto loginDto) {
+
+      if(userRepository.findByPhoneNumber(loginDto.getUserPhoneNumber()).isEmpty()) {
+         User u = new User();
+         Set<Authority> s = new HashSet<>();
+         Authority a = new Authority();
+         a.setName("ROLE_USER");
+         s.add(a);
+         u.setUserPhoneNumber(loginDto.getUserPhoneNumber());
+         u.setUserPassword(passwordEncoder.encode(loginDto.getPassword()));
+         u.setAuthorities(s);
+         u.setActivated(true);
+         userRepository.save(u);
+      }
 
       UsernamePasswordAuthenticationToken authenticationToken =
          new UsernamePasswordAuthenticationToken(loginDto.getUserPhoneNumber(), loginDto.getPassword());
