@@ -9,13 +9,13 @@ import java.util.List;
 @Configuration
 public class AdminConfig {
 
-    @Bean
-    CommandLineRunner commandLineRunner(AdminRepository adminRepository) {
-        return args -> {
-            Admin u = new Admin("073112312", "abcd");
-            if(adminRepository.findAll().isEmpty()) {
-                adminRepository.saveAll(List.of(u));
-            }
-        };
-    }
+//    @Bean
+//    CommandLineRunner commandLineRunner(AdminRepository adminRepository) {
+//        return args -> {
+//            Admin u = new Admin("073112312", "abcd");
+//            if(adminRepository.findAll().isEmpty()) {
+//                adminRepository.saveAll(List.of(u));
+//            }
+//        };
+//    }
 }

@@ -2,6 +2,7 @@ package com.example.VirtualMarket.UserPackage;
 
 import com.example.VirtualMarket.ProductPackage.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -21,6 +22,11 @@ public class UserController {
     @GetMapping
     public List<User> getAllUsers() {
         return userService.getAllUsers();
+    }
+
+    @GetMapping("/user")
+    public User getActualUser() {
+        return userService.getUserWithAuthorities();
     }
 
     @PostMapping
