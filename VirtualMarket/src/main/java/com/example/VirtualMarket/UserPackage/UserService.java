@@ -2,8 +2,10 @@ package com.example.VirtualMarket.UserPackage;
 
 import com.example.VirtualMarket.ProductPackage.Product;
 import com.example.VirtualMarket.ProductPackage.ProductRepository;
+import com.example.VirtualMarket.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +42,18 @@ public class UserService {
             return u.get();
         }
         throw new IllegalStateException("user with id: " + id + " not exist");
+    }
+
+    @Transactional(readOnly = true)
+    public User getUserWithAuthorities() {
+        Optional<User> u = SecurityUtils.
+                getCurrentUsername().
+                flatMap(userRepository::findOneWithAuthoritiesByUserPhoneNumber);
+
+        if(u.isPresent())
+            return u.get();
+        else
+            throw new IllegalStateException("user not exist");
     }
 
     public List<Product> getAllUserProducts(Long id) {
