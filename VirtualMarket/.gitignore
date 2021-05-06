@@ -33,4 +33,4 @@ build/
 .vscode/
 
 ### Database ###
-VirtualMarket/src/main/resources/application.properties
+#VirtualMarket/src/main/resources/application.properties
