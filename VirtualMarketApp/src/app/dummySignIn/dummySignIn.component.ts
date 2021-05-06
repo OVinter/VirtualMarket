@@ -30,10 +30,9 @@ export class DummySignInComponent implements OnInit {
     console.log(this.model);
     this.loginService.Login(this.model).subscribe(
       data => {
-        if (data.status === 'Success') {
+        if (data) {
+          console.log(data);
           this.router.navigate(['/home']);
-        } else {
-          this.errorMessage = data.message;
         }
       },
       error => {
