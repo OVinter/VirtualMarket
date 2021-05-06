@@ -44,6 +44,11 @@ public class UserController {
         return userService.getAllUserProducts(id);
     }
 
+    @GetMapping("/products")
+    public List<Product> getAllProducts() {
+      return userService.getAllProducts();
+    }
+
     @PutMapping("/{id}")
     public User modifyUser(@PathVariable Long id, @RequestBody User user) {
         return userService.modifyUser(id, user);

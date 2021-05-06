@@ -17,11 +17,11 @@ import java.util.Set;
 @Table(name = "USER")
 public class User /*extends Visitor*/ {
 
-    @JsonIgnore
     @Id
+//    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
+//    @SequenceGenerator(name = "USER_SEQ", sequenceName = "USER_SEQ", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "ID")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_SEQ")
-    @SequenceGenerator(name = "USER_SEQ", sequenceName = "USER_SEQ", allocationSize = 1)
     protected Long ID;
     @NonNull
     private String userPhoneNumber;
@@ -78,6 +78,10 @@ public class User /*extends Visitor*/ {
         this.products = products;
         this.activated = activated;
     }
+
+    public Long getID() { return ID; }
+
+    public void setID(Long ID) { this.ID = ID; }
 
     public boolean isActivated() {
         return activated;

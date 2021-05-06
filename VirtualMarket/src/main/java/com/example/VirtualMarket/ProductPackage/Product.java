@@ -20,12 +20,15 @@ public class Product {
     private String productDescription;
     @Getter @Setter
     private String productPhoto;
+    @Getter @Setter
+    private String userPhone;
 
-    public Product(String productName, String productCategory, String productDescription, String productPhoto) {
+    public Product(String productName, String productCategory, String productDescription, String productPhoto, String userPhone) {
         this.productName = productName;
         this.productCategory = productCategory;
         this.productDescription = productDescription;
         this.productPhoto = productPhoto;
+        this.userPhone = userPhone;
     }
 
     public Product() {
@@ -48,6 +51,7 @@ public class Product {
                 ", productCategory='" + productCategory + '\'' +
                 ", productDescription='" + productDescription + '\'' +
                 ", productPhoto='" + productPhoto + '\'' +
+                ", userPhone='" + userPhone + '\'' +
                 '}';
     }
 }

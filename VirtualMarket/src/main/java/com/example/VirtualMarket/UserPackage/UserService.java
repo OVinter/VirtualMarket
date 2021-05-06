@@ -165,4 +165,14 @@ public class UserService {
         }
         throw new IllegalStateException("user with id: " + idUser + " not exist");
     }
+
+  public List<Product> getAllProducts() {
+      List<User> userList = userRepository.findAll();
+      List<Product> productList = new ArrayList<>();
+      for (User u: userList) {
+        productList.addAll(u.getProducts());
+      }
+
+      return productList;
+  }
 }
