@@ -36,6 +36,15 @@ export class GetProductsService {
     return this.http.get<any>(this.UrlMyProducts + idUser + '/products', httpOptions);
   }
 
+  public deleteProduct(productId: number): Observable<void> {
+    const idToken = localStorage.getItem('currentUser');
+    const idUser = localStorage.getItem('idUser');
+    console.log(productId);
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('currentUser'))}) };
+    return this.http.delete<void>(`${this.UrlMyProducts}${idUser}/products/${productId}`, httpOptions);
+  }
+
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
 

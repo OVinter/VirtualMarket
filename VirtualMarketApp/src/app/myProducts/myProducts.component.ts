@@ -13,6 +13,8 @@ export class MyProductsComponent implements OnInit {
 
   products: any;
   flag: boolean;
+  deleteProduct: any;
+  productId: number;
 
   constructor(private getProductsService: GetProductsService, private router: Router) { }
 
@@ -56,6 +58,40 @@ export class MyProductsComponent implements OnInit {
       this.GetProducts();
     }
   }
+
+  public onDeleteProduct(product: Product): void {
+    this.getProductsService.deleteProduct(product.id).subscribe(
+      (response: void) => {
+        console.log(response);
+        this.GetProducts();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    );
+  }
+
+  public onOpenModal(product: Product, mode: string): void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    // if (mode === 'add') {
+    //   button.setAttribute('data-target', '#addEmployeeModal');
+    // }
+    // if (mode === 'edit') {
+    //   this.editEmployee = product;
+    //   button.setAttribute('data-target', '#updateEmployeeModal');
+    // }
+    if (mode === 'delete') {
+      this.deleteProduct = product;
+      button.setAttribute('data-target', '#deleteEmployeeModal');
+    }
+    container.appendChild(button);
+    button.click();
+  }
+
 
 
 
