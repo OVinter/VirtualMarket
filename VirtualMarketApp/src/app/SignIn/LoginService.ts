@@ -6,6 +6,7 @@ import { Register } from 'src/app/shared/Register';
 import {map} from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
+import {Router} from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class LoginService {
   header: any;
   UrlRegister: string;
   errorData: {};
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
     this.UrlLogin = 'http://localhost:8080/api/authenticate';
     const headerSettings: { [name: string]: string | string[]; } = {};
@@ -37,6 +38,7 @@ export class LoginService {
       .pipe(map(user => {
         if (user) {
           localStorage.setItem('currentUser', JSON.stringify(user));
+          this.router.navigate(['/home']);
           console.log(user);
         }
       }),

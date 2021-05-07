@@ -80,15 +80,15 @@ public class AuthenticationRestController {
       HttpHeaders httpHeaders = new HttpHeaders();
       httpHeaders.add(JWTFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
 //      return new ResponseEntity<>(new JWTToken(jwt), httpHeaders, HttpStatus.OK);
-     JWTToken j = new JWTToken(jwt);
-     System.out.println(j.getIdToken());
+       JWTToken j = new JWTToken(jwt);
+       System.out.println(j.getIdToken());
       return new JWTToken(jwt);
    }
 
    /**
     * Object to return as body in JWT Authentication.
     */
-   static class JWTToken {
+   public static class JWTToken {
 
       private String idToken;
 

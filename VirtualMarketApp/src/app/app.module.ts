@@ -11,18 +11,19 @@ import { MatButtonModule } from '@angular/material/button';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './navbar/navbar.component';
-import { DummyComponent } from './dummy/dummy.component';
+import { HomeComponent } from './Home/home.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {DummySignInComponent} from './dummySignIn/dummySignIn.component';
+import {DummySignInComponent} from './SignIn/dummySignIn.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {GetProductsService} from './Home/getProductsService';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    DummyComponent,
+    HomeComponent,
     DummySignInComponent
   ],
   imports: [

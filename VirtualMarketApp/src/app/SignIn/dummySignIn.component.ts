@@ -27,17 +27,7 @@ export class DummySignInComponent implements OnInit {
   }
 
   login(): any {
-    console.log(this.model);
-    this.loginService.Login(this.model).subscribe(
-      data => {
-        if (data) {
-          console.log(data);
-          this.router.navigate(['/home']);
-        }
-      },
-      error => {
-        this.errorMessage = error.message;
-      });
+    this.loginService.Login(this.model).subscribe();
   }
 
 }
