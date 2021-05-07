@@ -1,6 +1,7 @@
 package com.example.VirtualMarket.UserPackage;
 
 import com.example.VirtualMarket.ProductPackage.Product;
+import com.example.VirtualMarket.ProductPackage.ProductModel;
 import com.example.VirtualMarket.ProductPackage.ProductRepository;
 import com.example.VirtualMarket.security.SecurityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -88,18 +89,25 @@ public class UserService {
         return false;
     }
 
-    public Product addProduct(Long id, Product product) {
+    public Product addProduct(Long id, ProductModel product) {
         Optional<User> u = userRepository.findById(id);
         User user;
+        Product p = new Product();
+        p.setProductName(product.getProductName());
+        p.setProductDescription(product.getProductDescription());
+        p.setProductCategory(product.getProductCategory());
+        p.setProductPhoto(product.getProductPhoto());
+
         List<Product> products = new ArrayList<Product>();
         if(u.isPresent()) {
             user = u.get();
+            p.setUserPhone(user.getUserPhoneNumber());
             if (!user.getProducts().isEmpty()) {
                 products = user.getProducts();
             }
-            products.add(product);
+            products.add(p);
             user.setProducts(products);
-            return productRepository.save(product);
+            return productRepository.save(p);
         }
         throw new IllegalStateException("user with id: " + id + " not exist");
     }

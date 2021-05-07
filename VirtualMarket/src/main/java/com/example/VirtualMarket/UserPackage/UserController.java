@@ -1,6 +1,7 @@
 package com.example.VirtualMarket.UserPackage;
 
 import com.example.VirtualMarket.ProductPackage.Product;
+import com.example.VirtualMarket.ProductPackage.ProductModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -60,7 +61,7 @@ public class UserController {
     }
 
     @PostMapping("/{idUser}/products")
-    public Product addProduct(@PathVariable Long idUser, @RequestBody Product product) {
+    public Product addProduct(@PathVariable Long idUser, @RequestBody ProductModel product) {
         return userService.addProduct(idUser, product);
     }
 
