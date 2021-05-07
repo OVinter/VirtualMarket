@@ -12,12 +12,20 @@ import {GetProductsService} from './myProductsService';
 export class MyProductsComponent implements OnInit {
 
   products: any;
+  flag: boolean;
 
   constructor(private getProductsService: GetProductsService, private router: Router) { }
 
   ngOnInit(): void {
-    if (localStorage.getItem('currentUser')) {
+    // this.flag = localStorage.getItem('currentUser');
+    this.flag = true;
+    if (localStorage.getItem('currentUser') === null) {
+      this.flag = false;
+    }
+    if (this.flag) {
       this.GetProducts();
+    } else {
+      console.log(localStorage.getItem('currentUser'));
     }
   }
 

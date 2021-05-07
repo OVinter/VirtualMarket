@@ -1,31 +1,47 @@
+<div *ngIf="flag; then primaryBlock; else elseBlock">this is ignored</div>
+<ng-template #elseBlock>
+  <div>You need to login</div>
+</ng-template>
+<ng-template #primaryBlock>
+  <div id="form1" class="float-right" style="float: right">
+    <form class="form" class="form-inline my-2 my-lg-0" class="float-right">
+      <input type="search" (ngModelChange)="searchProducts(key.value)" #key="ngModel" ngModel
+             name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search products..." required>
+    </form>
+  </div>
+  <div>
+    <div id="div3" style="align-items: center">
+      <button class="login100-form-btn" style="">
+        Add Product
+      </button>
+    </div>
+  </div>
 
-<div class="float-right" style="float: right">
-  <form class="form" class="form-inline my-2 my-lg-0" class="float-right">
-    <input type="search" (ngModelChange)="searchProducts(key.value)" #key="ngModel" ngModel
-           name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search products..." required>
-  </form>
-</div>
-
-<tr *ngFor="let product of products" class="col-sm-10">
-  <div class="col-sm-10">
-    <div class="card">
-      <div class="image">
-        <img src="https://kittysnack.com/en/assets/img/hanoi-street-food/restaurant-hanoi.jpg" alt="W3Schools.com" />
-      </div>
-      <div class="card-inner">
-        <div class="header">
-          <h2>{{product.productName}}</h2>
-          <h2>{{product.productCategory}}</h2>
+  <tr *ngFor="let product of products" class="col-sm-10">
+    <div class="col-sm-10">
+      <div class="card">
+        <div class="image">
+          <img src="https://kittysnack.com/en/assets/img/hanoi-street-food/restaurant-hanoi.jpg" alt="W3Schools.com" />
         </div>
-        <div class="content">
-          <p>{{product.productDescription}}</p>
-        </div>
-        <div class="phone">
-          <p>Phone number: {{product.userPhone}}</p>
+        <div class="card-inner">
+          <div class="header">
+            <h2>{{product.productName}}</h2>
+          </div>
+          <div class="buttons">
+            <div id="div1">
+              <button class="login100-form-btn" style="">
+                Modify
+              </button>
+            </div>
+            <div id="div2">
+              <button class="login100-form-btn" style="">
+                Delete
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</tr>
-
+  </tr>
+</ng-template>
 
