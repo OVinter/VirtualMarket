@@ -14,17 +14,19 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './Home/home.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
-import {DummySignInComponent} from './SignIn/dummySignIn.component';
+import {SignInComponent} from './SignIn/signIn.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {GetProductsService} from './Home/getProductsService';
+import {MyProductsComponent} from './myProducts/myProducts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     HomeComponent,
-    DummySignInComponent
+    SignInComponent,
+    MyProductsComponent
   ],
   imports: [
     HttpClientModule,

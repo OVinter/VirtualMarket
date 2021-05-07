@@ -5,10 +5,10 @@ import { LoginService } from './LoginService';
 
 @Component({
   selector: 'app-register-form',
-  templateUrl: './dummySignIn.component.html',
+  templateUrl: './signIn.component.html',
   styleUrls: ['./css/main.css', './css/util.css']
 })
-export class DummySignInComponent implements OnInit {
+export class SignInComponent implements OnInit {
 
   model: any = {};
 

@@ -37,7 +37,10 @@ export class LoginService {
     return this.http.post<any>(this.UrlLogin, JSON.stringify(model), httpOptions)
       .pipe(map(user => {
         if (user) {
-          localStorage.setItem('currentUser', JSON.stringify(user));
+          localStorage.setItem('currentUser', JSON.stringify(user.jwtToken.id_token));
+          localStorage.setItem('idUser', JSON.stringify(user.idUser));
+          console.log(localStorage.getItem('currentUser'));
+          console.log(localStorage.getItem('idUser'));
           this.router.navigate(['/home']);
           console.log(user);
         }

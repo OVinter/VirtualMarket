@@ -6,6 +6,7 @@ import com.example.VirtualMarket.UserPackage.UserRepository;
 import com.example.VirtualMarket.security.jwt.JWTFilter;
 import com.example.VirtualMarket.security.jwt.TokenProvider;
 import com.example.VirtualMarket.security.model.Authority;
+import com.example.VirtualMarket.security.rest.dto.AuthResponse;
 import com.example.VirtualMarket.security.rest.dto.LoginDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.http.HttpHeaders;
@@ -52,7 +53,7 @@ public class AuthenticationRestController {
    }
 
    @PostMapping("/authenticate")
-   public JWTToken authorize(@Valid @RequestBody LoginDto loginDto) {
+   public AuthResponse authorize(@Valid @RequestBody LoginDto loginDto) {
 
       if(userRepository.findByPhoneNumber(loginDto.getUserPhoneNumber()).isEmpty()) {
          User u = new User();
@@ -66,7 +67,7 @@ public class AuthenticationRestController {
          u.setActivated(true);
          userRepository.save(u);
       }
-
+      Long id = userRepository.findByPhoneNumber(loginDto.getUserPhoneNumber()).get().getID();
       UsernamePasswordAuthenticationToken authenticationToken =
          new UsernamePasswordAuthenticationToken(loginDto.getUserPhoneNumber(), loginDto.getPassword());
 
@@ -82,7 +83,7 @@ public class AuthenticationRestController {
 //      return new ResponseEntity<>(new JWTToken(jwt), httpHeaders, HttpStatus.OK);
        JWTToken j = new JWTToken(jwt);
        System.out.println(j.getIdToken());
-      return new JWTToken(jwt);
+      return new AuthResponse(new JWTToken(jwt), id);
    }
 
    /**

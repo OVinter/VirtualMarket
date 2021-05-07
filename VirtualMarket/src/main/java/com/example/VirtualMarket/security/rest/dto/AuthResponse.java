@@ -9,10 +9,10 @@ public class AuthResponse {
   @Getter @Setter
   private AuthenticationRestController.JWTToken jwtToken;
   @Getter @Setter
-  private String data;
+  private Long idUser;
 
-  public AuthResponse(AuthenticationRestController.JWTToken jwtToken, String data) {
+  public AuthResponse(AuthenticationRestController.JWTToken jwtToken, Long idUser) {
     this.jwtToken = jwtToken;
-    this.data = data;
+    this.idUser = idUser;
   }
 }

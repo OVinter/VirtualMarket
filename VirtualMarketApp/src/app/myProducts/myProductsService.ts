@@ -13,21 +13,27 @@ import {Router} from '@angular/router';
 })
 export class GetProductsService {
 
-  UrlProducts: string;
+  UrlMyProducts: string;
   header: any;
   errorData: {};
 
   constructor(private http: HttpClient, private router: Router) {
 
-    this.UrlProducts = 'http://localhost:8080/api/users/products';
+    this.UrlMyProducts = 'http://localhost:8080/api/users/';
     const headerSettings: { [name: string]: string | string[]; } = {};
     this.header = new HttpHeaders(headerSettings);
 
   }
 
   GetProducts(): any {
-    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };
-    return this.http.get<any>(this.UrlProducts, httpOptions);
+    const idToken = localStorage.getItem('currentUser');
+    const idUser = localStorage.getItem('idUser');
+    console.log(idToken);
+    const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('currentUser'))}) };
+    console.log(this.UrlMyProducts + idUser + '/products');
+    console.log(httpOptions);
+    return this.http.get<any>(this.UrlMyProducts + idUser + '/products', httpOptions);
   }
 
   private handleError(error: HttpErrorResponse): any {
@@ -49,5 +55,4 @@ export class GetProductsService {
     };
     return throwError(this.errorData);
   }
-
 }
