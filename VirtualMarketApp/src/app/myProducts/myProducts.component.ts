@@ -71,6 +71,10 @@ export class MyProductsComponent implements OnInit {
     );
   }
 
+  public onAddProduct(): void {
+    this.router.navigate(['products/add']);
+  }
+
   public onOpenModal(product: Product, mode: string): void {
     const container = document.getElementById('main-container');
     const button = document.createElement('button');

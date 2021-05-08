@@ -20,6 +20,7 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
 import {GetProductsService} from './Home/getProductsService';
 import {MyProductsComponent} from './myProducts/myProducts.component';
 import {LogoutComponent} from './Logout/logout.component';
+import {AddProductComponent} from './AddProduct/addProduct.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import {LogoutComponent} from './Logout/logout.component';
     HomeComponent,
     SignInComponent,
     MyProductsComponent,
-    LogoutComponent
+    LogoutComponent,
+    AddProductComponent
   ],
   imports: [
     HttpClientModule,
