@@ -10,7 +10,6 @@ import {ModifyProductComponent} from './ModifyProduct/modifyProduct.component';
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'products', component: MyProductsComponent },
-  { path: 'projects', component: HomeComponent },
   { path: 'logout', component: LogoutComponent },
   { path: 'signup', component: SignInComponent },
   { path: 'products/add', component: AddProductComponent },

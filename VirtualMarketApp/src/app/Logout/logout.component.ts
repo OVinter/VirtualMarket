@@ -24,6 +24,7 @@ export class LogoutComponent implements OnInit {
     localStorage.getItem('idUser');
     localStorage.removeItem('currentUser');
     localStorage.removeItem('idUser');
-    this.router.navigate(['/signup']);
+    this.router.navigate(['/signup'])
+      .then(() => window.location.reload());
   }
 }

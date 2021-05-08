@@ -41,7 +41,8 @@ export class LoginService {
           localStorage.setItem('idUser', JSON.stringify(user.idUser));
           console.log(localStorage.getItem('currentUser'));
           console.log(localStorage.getItem('idUser'));
-          this.router.navigate(['/home']);
+          this.router.navigate(['/home'])
+            .then(() => window.location.reload());
           console.log(user);
         }
       }),
