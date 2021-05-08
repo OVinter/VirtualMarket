@@ -75,25 +75,9 @@ export class MyProductsComponent implements OnInit {
     this.router.navigate(['products/add']);
   }
 
-  public onOpenModal(product: Product, mode: string): void {
-    const container = document.getElementById('main-container');
-    const button = document.createElement('button');
-    button.type = 'button';
-    button.style.display = 'none';
-    button.setAttribute('data-toggle', 'modal');
-    // if (mode === 'add') {
-    //   button.setAttribute('data-target', '#addEmployeeModal');
-    // }
-    // if (mode === 'edit') {
-    //   this.editEmployee = product;
-    //   button.setAttribute('data-target', '#updateEmployeeModal');
-    // }
-    if (mode === 'delete') {
-      this.deleteProduct = product;
-      button.setAttribute('data-target', '#deleteEmployeeModal');
-    }
-    container.appendChild(button);
-    button.click();
+  public onModifyProduct(product: Product): void {
+    localStorage.setItem('modifyProduct', JSON.stringify(product));
+    this.router.navigate(['products/modify']);
   }
 
 

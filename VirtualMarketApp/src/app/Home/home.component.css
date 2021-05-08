@@ -10,7 +10,7 @@ body {
   margin-bottom:10px;
   background-color:#FFF;
   margin-right: 40px;
-  margin-left: 40px;
+  margin-left: 40px
 }
 
 .card:hover {
@@ -38,4 +38,9 @@ body {
 
 #form1:hover {
   box-shadow: 0 5px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+#desc {
+  word-break: break-word;
+  width: 300px;
 }

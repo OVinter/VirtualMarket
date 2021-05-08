@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -42,12 +42,13 @@
             <input id="productCategory" class="input100" type="text" name="productCategory" [(ngModel)]="model.productCategory" placeholder="Product Category">
             <span class="focus-input100"></span>
           </div>
-          <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter Product Description">
-            <input id="productDescription" class="input100" type="text" name="productDescription" [(ngModel)]="model.productDescription" placeholder="Product Description">
-            <span class="focus-input100"></span>
-          </div>
           <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter Product Photo">
             <input id="productPhoto" class="input100" type="text" name="productPhoto" [(ngModel)]="model.productPhoto" placeholder="Product Photo">
+            <span class="focus-input100"></span>
+          </div>
+          <div class="wrap-input101 validate-input m-b-16" data-validate = "Please enter Product Description">
+            <textarea id="productDescription" class="input101" rows="2" columns="2" type="text" name="productDescription" [(ngModel)]="model.productDescription" placeholder="Product Description">
+            </textarea>
             <span class="focus-input100"></span>
           </div>
           <div class="container-login100-form-btn m-b-16">

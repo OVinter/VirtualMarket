@@ -17,10 +17,10 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {SignInComponent} from './SignIn/signIn.component';
 import {FormsModule} from '@angular/forms';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
-import {GetProductsService} from './Home/getProductsService';
 import {MyProductsComponent} from './myProducts/myProducts.component';
 import {LogoutComponent} from './Logout/logout.component';
 import {AddProductComponent} from './AddProduct/addProduct.component';
+import {ModifyProductComponent} from './ModifyProduct/modifyProduct.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +30,8 @@ import {AddProductComponent} from './AddProduct/addProduct.component';
     SignInComponent,
     MyProductsComponent,
     LogoutComponent,
-    AddProductComponent
+    AddProductComponent,
+    ModifyProductComponent
   ],
   imports: [
     HttpClientModule,

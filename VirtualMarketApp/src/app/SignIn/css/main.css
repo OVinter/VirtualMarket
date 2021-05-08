@@ -394,3 +394,15 @@ iframe {
     padding-right: 15px;
   }
 }
+
+#userPhoneNumber {
+  -moz-appearance: textfield;
+}
+#userPhoneNumber::-webkit-inner-spin-button {
+  display: none;
+}
+#userPhoneNumber::-webkit-outer-spin-button,
+#userPhoneNumber::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

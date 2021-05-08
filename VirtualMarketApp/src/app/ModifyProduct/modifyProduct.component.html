@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--===============================================================================================-->
-<!--  <link rel="icon" type="image/png" href="./src/app/dummySignIn/images/icons/favicon.ico"/>-->
+  <!--  <link rel="icon" type="image/png" href="./src/app/dummySignIn/images/icons/favicon.ico"/>-->
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" src="/VirtualMarketApp/src/app/SignIn/vendor/vendor/bootstrap/css/bootstrap.min.css">
   <!--===============================================================================================-->
@@ -29,29 +29,33 @@
 <div class="limiter">
   <div class="container-login100">
     <div class="wrap-login100">
-<!--      form name="form" (ngSubmit)="login()" #f="ngForm" class="login100-form validate-form p-l-55 p-r-55 p-t-178"-->
-<!--      form class="login100-form validate-form p-l-55 p-r-55 p-t-178"-->
-      <form name="form" (ngSubmit)="login()" #f="ngForm" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+      <form name="form" (ngSubmit)="modifyProduct()" #f="ngForm" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
 					<span class="login100-form-title">
-						Sign In
+						Modify Your Product
 					</span>
-
-        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-          <input id="userPhoneNumber" class="input100" type="number" name="userPhoneNumber" [(ngModel)]="model.userPhoneNumber" placeholder="Phone Number">
-          <span class="focus-input100"></span>
-        </div>
-
-        <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter password">
-          <input id="password" class="input100" type="password" name="pass" [(ngModel)]="model.password" placeholder="Password">
-          <span class="focus-input100"></span>
-        </div>
-        <div>
-
-        </div>
-        <div class="container-login100-form-btn m-b-16">
-          <button class="login100-form-btn">
-            Sign in
-          </button>
+        <div class="div-form">
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Product Name">
+            <input id="productName" class="input100" type="text" name="productName" [(ngModel)]="model.productName"  placeholder="{{modify.productName}}">
+            <span class="focus-input100"></span>
+          </div>
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Product Category">
+            <input id="productCategory" class="input100" type="text" name="productCategory" [(ngModel)]="model.productCategory" placeholder="{{modify.productCategory}}">
+            <span class="focus-input100"></span>
+          </div>
+          <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter Product Photo">
+            <input id="productPhoto" class="input100" type="text" name="productPhoto" [(ngModel)]="model.productPhoto" placeholder="{{modify.productPhoto}}">
+            <span class="focus-input100"></span>
+          </div>
+          <div class="wrap-input101 validate-input m-b-16" data-validate = "Please enter Product Description">
+            <textarea id="productDescription" class="input101" rows="2" columns="2" type="text" name="productDescription" [(ngModel)]="model.productDescription" placeholder="{{modify.productDescription}}">
+            </textarea>
+            <span class="focus-input100"></span>
+          </div>
+          <div class="container-login100-form-btn m-b-16">
+            <button class="login100-form-btn">
+              Modify Product
+            </button>
+          </div>
         </div>
       </form>
     </div>
