@@ -24,8 +24,16 @@ public class UserService {
         this.productRepository = productRepository;
     }
 
-    public List<User> getAllUsers() {
-        return userRepository.findAll();
+    public List<UserModel> getAllUsers() {
+
+      List<User> userList =  userRepository.findAll();
+      List<UserModel> users = new ArrayList<UserModel>();
+      for (User u : userList) {
+        UserModel user = new UserModel(u.getUserPhoneNumber(), u.getUserPassword());
+        users.add(user);
+      }
+
+      return users;
     }
 
     public User addUser(User user) {
