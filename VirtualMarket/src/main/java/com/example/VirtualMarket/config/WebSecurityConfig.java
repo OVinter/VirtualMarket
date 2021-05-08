@@ -61,8 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/**/*.css",
             "/**/*.js",
             "/h2-console/**",
-            "/api/users",
-            "/api/users/products"
+            "/api/products"
          );
    }
 
@@ -93,9 +92,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
          .and()
          .authorizeRequests()
-         .antMatchers("/api/authenticate",
-            "/api/users",
-            "/api/users/products").permitAll()
+         .antMatchers("/api/authenticate").permitAll()
          // .antMatchers("/api/register").permitAll()
          // .antMatchers("/api/activate").permitAll()
          // .antMatchers("/api/account/reset-password/init").permitAll()
@@ -103,6 +100,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
          .antMatchers("/api/person").hasAuthority("ROLE_USER")
          .antMatchers("/api/hiddenmessage").hasAuthority("ROLE_ADMIN")
+         .antMatchers("/api/admins").hasAuthority("ROLE_ADMIN")
 
          .anyRequest().authenticated()
 

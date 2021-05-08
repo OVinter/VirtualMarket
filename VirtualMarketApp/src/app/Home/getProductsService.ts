@@ -19,7 +19,7 @@ export class GetProductsService {
 
   constructor(private http: HttpClient, private router: Router) {
 
-    this.UrlProducts = 'http://localhost:8080/api/users/products';
+    this.UrlProducts = 'http://localhost:8080/api/products';
     const headerSettings: { [name: string]: string | string[]; } = {};
     this.header = new HttpHeaders(headerSettings);
 
