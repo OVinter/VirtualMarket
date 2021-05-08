@@ -61,7 +61,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
             "/**/*.css",
             "/**/*.js",
             "/h2-console/**",
-            "/api/users"
+            "/api/users",
+            "/api/users/products"
          );
    }
 
@@ -92,7 +93,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
          .and()
          .authorizeRequests()
-         .antMatchers("/api/authenticate", "/api/users/*").permitAll()
+         .antMatchers("/api/authenticate",
+            "/api/users",
+            "/api/users/products").permitAll()
          // .antMatchers("/api/register").permitAll()
          // .antMatchers("/api/activate").permitAll()
          // .antMatchers("/api/account/reset-password/init").permitAll()

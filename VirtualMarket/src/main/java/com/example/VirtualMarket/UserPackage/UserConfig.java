@@ -25,13 +25,13 @@ public class UserConfig {
         a.setName("ROLE_ADMIN");
         s.add(a);
         s.add(b);
-        List<Product> l = new ArrayList<>();
-        Product p = new Product("aaa", "aaacateg", "aaadesc", "aaaphoto");
-        l.add(p);
 
         return args -> {
             User u = new User();
             u.setUserPhoneNumber("9999");
+            List<Product> l = new ArrayList<>();
+            Product p = new Product("aaa", "aaacateg", "aaadesc", "aaaphoto", u.getUserPhoneNumber());
+            l.add(p);
             u.setUserPassword(passwordEncoder.encode("admin"));
             u.setActivated(true);
             u.setAuthorities(s);

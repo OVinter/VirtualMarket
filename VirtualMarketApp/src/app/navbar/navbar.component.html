@@ -1,0 +1,26 @@
+<div *ngIf="flag; then primaryBlock; else elseBlock">this is ignored</div>
+<ng-template #elseBlock>
+  <mat-toolbar class="tool" color="primary" class="mat-elevation-z8">
+   <span><mat-icon>eco</mat-icon> Virtual Market </span>
+
+    <div class="spacer"></div>
+
+   <a mat-button routerLink="home">Home</a>
+<!--   <a mat-button routerLink="products">My Products</a>-->
+<!--   <a mat-button routerLink="logout">Logout</a>-->
+   <a mat-raised-button color="accent" routerLink="signup">Sign In</a>
+  </mat-toolbar>
+</ng-template>
+
+<ng-template #primaryBlock>
+  <mat-toolbar class="tool" color="primary" class="mat-elevation-z8">
+    <span><mat-icon>eco</mat-icon> Virtual Market </span>
+
+    <div class="spacer"></div>
+
+    <a mat-button routerLink="home">Home</a>
+    <a mat-button routerLink="products">My Products</a>
+    <a mat-button routerLink="logout">Logout</a>
+<!--    <a mat-raised-button color="accent" routerLink="signup">Sign Up</a>-->
+  </mat-toolbar>
+</ng-template>
