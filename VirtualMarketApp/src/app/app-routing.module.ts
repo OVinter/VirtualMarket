@@ -9,6 +9,7 @@ import {ModifyProductComponent} from './ModifyProduct/modifyProduct.component';
 import {AdminViewComponent} from './AdminView/adminView.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'products', component: MyProductsComponent },
   { path: 'logout', component: LogoutComponent },
