@@ -8,6 +8,7 @@ import {AddProductComponent} from './AddProduct/addProduct.component';
 import {ModifyProductComponent} from './ModifyProduct/modifyProduct.component';
 
 const routes: Routes = [
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'products', component: MyProductsComponent },
   { path: 'logout', component: LogoutComponent },

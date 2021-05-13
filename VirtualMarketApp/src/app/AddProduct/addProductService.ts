@@ -22,11 +22,10 @@ export class AddProductService {
 
   }
 
-  AddProduct(model: any): any{
+  AddProduct(model: any, idUser: any): any{
 
     console.log(model);
     const idToken = localStorage.getItem('currentUser');
-    const idUser = localStorage.getItem('idUser');
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json',
         Authorization: 'Bearer ' + JSON.parse(localStorage.getItem('currentUser'))}) };
 
