@@ -14,12 +14,18 @@ export class ModifyProductComponent implements OnInit {
 
   model: any = {};
   modify: any = {};
+  flag: any;
 
   constructor(private router: Router, private addProductService: ModifyProductService) {
     this.modify = JSON.parse(localStorage.getItem('modifyProduct'));
   }
 
   ngOnInit(): void {
+    if (this.modify) {
+      this.flag = true;
+    } else {
+      this.flag = false;
+    }
   }
 
   modifyProduct(): any {

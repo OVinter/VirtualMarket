@@ -26,41 +26,47 @@
 </head>
 <body>
 <!--#signupForm="ngForm" (ngSubmit)="registerUser(signupForm)"-->
-<div class="limiter">
-  <div class="container-login100">
-    <div class="wrap-login100">
-      <form name="form" (ngSubmit)="modifyProduct()" #f="ngForm" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
-					<span class="login100-form-title">
-						Modify Your Product
-					</span>
-        <div class="div-form">
-          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Product Name">
-            <input id="productName" class="input100" type="text" name="productName" [(ngModel)]="model.productName"  placeholder="{{modify.productName}}">
-            <span class="focus-input100"></span>
+<div *ngIf="flag; then primaryBlock; else elseBlock"></div>
+<ng-template #elseBlock>
+  !You need first to select from your product list one item to modify!
+</ng-template>
+<ng-template #primaryBlock>
+  <div class="limiter">
+    <div class="container-login100">
+      <div class="wrap-login100">
+        <form name="form" (ngSubmit)="modifyProduct()" #f="ngForm" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+            <span class="login100-form-title">
+              Modify Your Product
+            </span>
+          <div class="div-form">
+            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Product Name">
+              <input id="productName" class="input100" type="text" name="productName" [(ngModel)]="model.productName"  placeholder="{{modify.productName}}">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Product Category">
+              <input id="productCategory" class="input100" type="text" name="productCategory" [(ngModel)]="model.productCategory" placeholder="{{modify.productCategory}}">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter Product Photo">
+              <input id="productPhoto" class="input100" type="text" name="productPhoto" [(ngModel)]="model.productPhoto" placeholder="{{modify.productPhoto}}">
+              <span class="focus-input100"></span>
+            </div>
+            <div class="wrap-input101 validate-input m-b-16" data-validate = "Please enter Product Description">
+              <textarea id="productDescription" class="input101" rows="2" columns="2" type="text" name="productDescription" [(ngModel)]="model.productDescription" placeholder="{{modify.productDescription}}">
+              </textarea>
+              <span class="focus-input100"></span>
+            </div>
+            <div class="container-login100-form-btn m-b-16">
+              <button class="login100-form-btn">
+                Modify Product
+              </button>
+            </div>
           </div>
-          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Product Category">
-            <input id="productCategory" class="input100" type="text" name="productCategory" [(ngModel)]="model.productCategory" placeholder="{{modify.productCategory}}">
-            <span class="focus-input100"></span>
-          </div>
-          <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter Product Photo">
-            <input id="productPhoto" class="input100" type="text" name="productPhoto" [(ngModel)]="model.productPhoto" placeholder="{{modify.productPhoto}}">
-            <span class="focus-input100"></span>
-          </div>
-          <div class="wrap-input101 validate-input m-b-16" data-validate = "Please enter Product Description">
-            <textarea id="productDescription" class="input101" rows="2" columns="2" type="text" name="productDescription" [(ngModel)]="model.productDescription" placeholder="{{modify.productDescription}}">
-            </textarea>
-            <span class="focus-input100"></span>
-          </div>
-          <div class="container-login100-form-btn m-b-16">
-            <button class="login100-form-btn">
-              Modify Product
-            </button>
-          </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
-</div>
+</ng-template>
 
 
 <!--===============================================================================================-->

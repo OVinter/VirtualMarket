@@ -21,6 +21,7 @@ import {MyProductsComponent} from './myProducts/myProducts.component';
 import {LogoutComponent} from './Logout/logout.component';
 import {AddProductComponent} from './AddProduct/addProduct.component';
 import {ModifyProductComponent} from './ModifyProduct/modifyProduct.component';
+import {AdminViewComponent} from './AdminView/adminView.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {ModifyProductComponent} from './ModifyProduct/modifyProduct.component';
     MyProductsComponent,
     LogoutComponent,
     AddProductComponent,
-    ModifyProductComponent
+    ModifyProductComponent,
+    AdminViewComponent
   ],
   imports: [
     HttpClientModule,
