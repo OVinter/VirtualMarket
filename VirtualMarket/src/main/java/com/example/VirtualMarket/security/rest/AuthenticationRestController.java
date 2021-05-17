@@ -1,17 +1,15 @@
 package com.example.VirtualMarket.security.rest;
 
-import com.example.VirtualMarket.ProductPackage.Product;
 import com.example.VirtualMarket.UserPackage.User;
 import com.example.VirtualMarket.UserPackage.UserRepository;
 import com.example.VirtualMarket.security.jwt.JWTFilter;
 import com.example.VirtualMarket.security.jwt.TokenProvider;
 import com.example.VirtualMarket.security.model.Authority;
+import com.example.VirtualMarket.security.repository.AuthorityRepository;
 import com.example.VirtualMarket.security.rest.dto.AuthResponse;
 import com.example.VirtualMarket.security.rest.dto.LoginDto;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.core.Authentication;
@@ -21,9 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -34,22 +30,22 @@ import java.util.Set;
 public class AuthenticationRestController {
 
    private final TokenProvider tokenProvider;
-
    private final AuthenticationManagerBuilder authenticationManagerBuilder;
-
    private final UserRepository userRepository;
-
    private PasswordEncoder passwordEncoder;
+   private AuthorityRepository authorityRepository;
+
 
    public AuthenticationRestController(TokenProvider tokenProvider,
                                        AuthenticationManagerBuilder authenticationManagerBuilder,
                                        UserRepository userRepository,
-                                       PasswordEncoder passwordEncoder) {
+                                       PasswordEncoder passwordEncoder,
+                                       AuthorityRepository authorityRepository) {
       this.tokenProvider = tokenProvider;
       this.authenticationManagerBuilder = authenticationManagerBuilder;
       this.userRepository = userRepository;
       this.passwordEncoder = passwordEncoder;
-
+      this.authorityRepository = authorityRepository;
    }
 
    @PostMapping("/authenticate")
@@ -65,6 +61,7 @@ public class AuthenticationRestController {
          u.setUserPassword(passwordEncoder.encode(loginDto.getPassword()));
          u.setAuthorities(s);
          u.setActivated(true);
+         authorityRepository.save(a);
          userRepository.save(u);
       }
       Long id = userRepository.findByPhoneNumber(loginDto.getUserPhoneNumber()).get().getID();
