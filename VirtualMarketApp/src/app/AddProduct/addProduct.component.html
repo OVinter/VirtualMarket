@@ -42,18 +42,22 @@
 						Add Your Product
 					</span>
         <div class="div-form">
+          <label class="label">Name of product:</label><br>
           <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Product Name">
             <input id="productName" class="input100" type="text" name="productName" [(ngModel)]="model.productName" placeholder="Product Name">
             <span class="focus-input100"></span>
           </div>
+          <label class="label">Category:</label><br>
           <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Product Category">
             <input id="productCategory" class="input100" type="text" name="productCategory" [(ngModel)]="model.productCategory" placeholder="Product Category">
             <span class="focus-input100"></span>
           </div>
+          <label class="label">Photo:</label><br>
           <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter Product Photo">
             <input id="productPhoto" class="input100" type="text" name="productPhoto" [(ngModel)]="model.productPhoto" placeholder="Product Photo">
             <span class="focus-input100"></span>
           </div>
+          <label class="label">Details:</label><br>
           <div class="wrap-input101 validate-input m-b-16" data-validate = "Please enter Product Description">
             <textarea id="productDescription" class="input101" rows="2" columns="2" type="text" name="productDescription" [(ngModel)]="model.productDescription" placeholder="Product Description">
             </textarea>
