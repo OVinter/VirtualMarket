@@ -1,7 +1,4 @@
 
-
-
-
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
@@ -25,15 +22,17 @@
 /*//////////////////////////////////////////////////////////////////
 [ RESTYLE TAG ]*/
 
-* {
+ * {
 	margin: 0px;
 	padding: 0px;
 	box-sizing: border-box;
+   /*background-color: blue;*/
 }
 
-body, html {
+ body, html {
 	height: 100%;
 	font-family: Ubuntu-Regular, sans-serif;
+
 }
 
 /*---------------------------------------------*/
@@ -59,7 +58,7 @@ a:hover {
 }
 
 /*---------------------------------------------*/
-h1,h2,h3,h4,h5,h6 {
+ h1,h2,h3,h4,h5,h6 {
 	margin: 0px;
 }
 
@@ -78,9 +77,11 @@ ul, li {
 
 
 /*---------------------------------------------*/
+
 input {
 	outline: none;
 	border: none;
+
 }
 
 input[type="number"] {
@@ -115,6 +116,7 @@ textarea::-moz-placeholder { color: #1b3815;}
 textarea:-ms-input-placeholder { color: #1b3815;}
 
 /*---------------------------------------------*/
+
 button {
 	outline: none !important;
 	border: none;
@@ -406,3 +408,5 @@ iframe {
   -webkit-appearance: none;
   margin: 0;
 }
+
+

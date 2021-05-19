@@ -2,6 +2,7 @@ package com.example.VirtualMarket.UserPackage;
 
 import com.example.VirtualMarket.ProductPackage.Product;
 import com.example.VirtualMarket.security.model.Authority;
+import com.example.VirtualMarket.security.repository.AuthorityRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,7 +17,7 @@ import java.util.Set;
 public class UserConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository userRepository, PasswordEncoder passwordEncoder) {
+    CommandLineRunner commandLineRunner(UserRepository userRepository,AuthorityRepository authorityRepository, PasswordEncoder passwordEncoder) {
 
         Set<Authority> s = new HashSet<>();
         Authority a = new Authority();
@@ -36,7 +37,9 @@ public class UserConfig {
             u.setActivated(true);
             u.setAuthorities(s);
             if(userRepository.findOneWithAuthoritiesByUserPhoneNumber("9999").isEmpty()) {
-                userRepository.saveAll(
+              authorityRepository.save(a);
+              authorityRepository.save(b);
+              userRepository.saveAll(
                         List.of(u)
                 );
             }

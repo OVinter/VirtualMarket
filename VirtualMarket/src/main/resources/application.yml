@@ -33,7 +33,7 @@ spring:
     datasource:
       url: jdbc:mysql://localhost/virtualmarket
       username: root
-      password: abc
+      password: abcd
       driver-class-name: com.mysql.jdbc.Driver
       testWhileIdle: true
       validationQuery: SELECT 1
