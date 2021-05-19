@@ -399,7 +399,7 @@ iframe {
 .validate-input {
   position: relative;
   margin-bottom: 10px;
-  background-color:#e5f9fa; ;
+  background-color:#e5f9fa;
 }
 
 .alert-validate::before {
