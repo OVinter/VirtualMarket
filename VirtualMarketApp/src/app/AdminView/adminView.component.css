@@ -26,3 +26,30 @@
   border-radius: 15px ;
   height: 100%;
 }
+
+.vanzator{
+  margin-left: 50px;
+  font-size: 25px;
+  color: #003366;
+}
+
+table {
+  margin: auto;
+  width: 20%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+/*tr:nth-child(even) {*/
+/*  background-color:#4682B4;*/
+/*}*/
+
+tr:hover {
+  background-color:#e5f9fa;
+}
