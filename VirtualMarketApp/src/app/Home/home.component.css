@@ -45,20 +45,20 @@ body {
 
 .titlu{
   text-align: center;
-  font-size: 25px;
+  font-size: 40px;
   color: #000066;
 }
 
 .titlu2{
   text-align: right;
-  font-size: 15px;
+  font-size: 20px;
   color: #FF6633;;
   margin-right: 50px;
 }
 
 .img-market{
   margin: 5px;
-  width:100%;
+  width:99%;
   /*padding-bottom: 10px;*/
   border-radius: 15px ;
   height: 100%;
