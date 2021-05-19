@@ -1,11 +1,25 @@
-
-
 .spacer {
   flex: 1 1 auto;
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row{
+  background-color: #FF6633;
+}
+
+.acasa{
+  color: white;
 }
 
 .tool:hover {
   box-shadow: 0 5px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
+
+/*.virtual{*/
+/*  padding:30px 30px 20px;*/
+/*  font-family: arial;*/
+/*  font-size: 15px;*/
+/*  color: #FF6633;*/
+/*  border-bottom: 3px solid #FF6633;*/
+/*}*/
 
 
