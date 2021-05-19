@@ -27,8 +27,6 @@
   height: 100%;
 }
 
-
-
 /*//////////////////////////////////////////////////////////////////
 [ FONT ]*/
 
@@ -200,30 +198,31 @@ iframe {
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  padding: 30px;
+
+  padding-top: 10px;
   position: center;
   background-color: #fff;
 }
 
 .div-form {
-  padding-top: 150px;
+  padding-top: 60px;
   padding-inline-end: 15px;
   padding-inline-start: 15px;
 }
 
-.wrap-login100 {
-  width: 500px;
-  height: 500px;
-  position: center;
-  background: #fff;
-  border-radius: 20px;
-  overflow: hidden;
-  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
-  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
-  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
-  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
-  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);
-}
+/*.wrap-login100 {*/
+/*  width: 500px;*/
+/*  height: 500px;*/
+/*  position: center;*/
+/*  !*background: black;*!*/
+/*  border-radius: 20px;*/
+/*  overflow: hidden;*/
+/*  box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);*/
+/*  -moz-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);*/
+/*  -webkit-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);*/
+/*  -o-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);*/
+/*  -ms-box-shadow: 0 3px 20px 0px rgba(0, 0, 0, 0.1);*/
+/*}*/
 
 
 /*==================================================================
@@ -237,18 +236,17 @@ iframe {
 .login100-form-title {
   font-family: JosefinSans-Bold;
   font-size: 30px;
-  color: #fff;
+  color: black;
   line-height: 1.2;
   text-align: center;
-
   display: block;
   position: absolute;
   width: 100%;
   top: 0;
   left: 0;
-  background-color: #EF4C00;
-  padding-top: 50px;
-  padding-bottom: 39px;
+  /*background-color: #EF4C00;*/
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 /*------------------------------------------------------------------
