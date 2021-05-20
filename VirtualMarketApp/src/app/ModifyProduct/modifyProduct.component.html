@@ -25,6 +25,14 @@
   <!--===============================================================================================-->
 </head>
 <body>
+
+<div class="virtual">VIRTUAL MARKET</div>
+<br>
+<div class="titlu">" A big buisness start small "</div><br>
+<div class="titlu2">RICHARD BRANSON</div>
+<br>
+<img class="img-market" src="https://wallpapercave.com/wp/wp3537552.jpg" width="650" height="300"><br>
+
 <!--#signupForm="ngForm" (ngSubmit)="registerUser(signupForm)"-->
 <div *ngIf="flag; then primaryBlock; else elseBlock"></div>
 <ng-template #elseBlock>
@@ -32,25 +40,29 @@
 </ng-template>
 <ng-template #primaryBlock>
   <div class="limiter">
-    <div class="container-login100">
-      <div class="wrap-login100">
+<!--    <div class="container-login100">-->
+<!--      <div class="wrap-login100">-->
         <form name="form" (ngSubmit)="modifyProduct()" #f="ngForm" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
             <span class="login100-form-title">
               Modify Your Product
             </span>
           <div class="div-form">
+            <label class="label">Name of product:</label><br>
             <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Product Name">
               <input id="productName" class="input100" type="text" name="productName" [(ngModel)]="model.productName"  placeholder="{{modify.productName}}">
               <span class="focus-input100"></span>
             </div>
+            <label class="label">Category:</label><br>
             <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter Product Category">
               <input id="productCategory" class="input100" type="text" name="productCategory" [(ngModel)]="model.productCategory" placeholder="{{modify.productCategory}}">
               <span class="focus-input100"></span>
             </div>
+            <label class="label">Photo:</label><br>
             <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter Product Photo">
               <input id="productPhoto" class="input100" type="text" name="productPhoto" [(ngModel)]="model.productPhoto" placeholder="{{modify.productPhoto}}">
               <span class="focus-input100"></span>
             </div>
+            <label class="label">Details:</label><br>
             <div class="wrap-input101 validate-input m-b-16" data-validate = "Please enter Product Description">
               <textarea id="productDescription" class="input101" rows="2" columns="2" type="text" name="productDescription" [(ngModel)]="model.productDescription" placeholder="{{modify.productDescription}}">
               </textarea>
@@ -63,9 +75,9 @@
             </div>
           </div>
         </form>
-      </div>
-    </div>
-  </div>
+     </div>
+<!--    </div>-->
+<!--  </div>-->
 </ng-template>
 
 

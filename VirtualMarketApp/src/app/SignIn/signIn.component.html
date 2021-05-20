@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!--===============================================================================================-->
-<!--  <link rel="icon" type="image/png" href="./src/app/dummySignIn/images/icons/favicon.ico"/>-->
+  <!--  <link rel="icon" type="image/png" href="./src/app/dummySignIn/images/icons/favicon.ico"/>-->
   <!--===============================================================================================-->
   <link rel="stylesheet" type="text/css" src="/VirtualMarketApp/src/app/SignIn/vendor/vendor/bootstrap/css/bootstrap.min.css">
   <!--===============================================================================================-->
@@ -25,38 +25,45 @@
   <!--===============================================================================================-->
 </head>
 <body>
+
+<div class="virtual">VIRTUAL MARKET</div>
+<br>
+<div class="titlu">" A big buisness start small "</div><br>
+<div class="titlu2">RICHARD BRANSON</div>
+<br>
+<img class="img-market" src="https://wallpapercave.com/wp/wp3537552.jpg" width="650" height="300"><br>
+
 <!--#signupForm="ngForm" (ngSubmit)="registerUser(signupForm)"-->
 <div class="limiter">
-  <div class="container-login100">
-    <div class="wrap-login100">
-<!--      form name="form" (ngSubmit)="login()" #f="ngForm" class="login100-form validate-form p-l-55 p-r-55 p-t-178"-->
-<!--      form class="login100-form validate-form p-l-55 p-r-55 p-t-178"-->
-      <form name="form" (ngSubmit)="login()" #f="ngForm" class="login100-form validate-form p-l-55 p-r-55 p-t-178">
+<!--  <div class="container-login100">-->
+<!--    <div class="wrap-login100">-->
+      <!--      form name="form" (ngSubmit)="login()" #f="ngForm" class="login100-form validate-form p-l-55 p-r-55 p-t-178"-->
+      <!--      form class="login100-form validate-form p-l-55 p-r-55 p-t-178"-->
+      <form name="form" (ngSubmit)="login()" #f="ngForm" class="login100-form validate-form p-l-55 p-r-55 p-t-30">
 					<span class="login100-form-title">
 						Sign In
 					</span>
-
-        <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
-          <input id="userPhoneNumber" class="input100" type="number" name="userPhoneNumber" [(ngModel)]="model.userPhoneNumber" placeholder="Phone Number">
-          <span class="focus-input100"></span>
+        <div class="div-form">
+          <label class="label">PHONE NUMBER:</label><br>
+          <div class="wrap-input100 validate-input m-b-16" data-validate="Please enter username">
+            <input id="userPhoneNumber" class="input100" type="number" name="userPhoneNumber" [(ngModel)]="model.userPhoneNumber" placeholder="Phone Number">
+            <span class="focus-input100"></span>
         </div>
-
+        <label class="label">PASSWORD:</label><br>
         <div class="wrap-input100 validate-input m-b-16" data-validate = "Please enter password">
           <input id="password" class="input100" type="password" name="pass" [(ngModel)]="model.password" placeholder="Password">
           <span class="focus-input100"></span>
-        </div>
-        <div>
-
         </div>
         <div class="container-login100-form-btn m-b-16">
           <button class="login100-form-btn">
             Sign in
           </button>
+       </div>
         </div>
       </form>
     </div>
-  </div>
-</div>
+<!--  </div>-->
+<!--</div>-->
 
 
 <!--===============================================================================================-->

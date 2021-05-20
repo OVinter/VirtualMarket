@@ -11,6 +11,7 @@ body {
   background-color:#FFF;
   margin-right: 40px;
   margin-left: 40px;
+  border-radius: 20px;
 }
 
 .card:hover {
@@ -22,12 +23,57 @@ body {
 .card .header h2, h3 {
   margin-bottom: 0px;
   margin-top:0px;
+  color: #DC143C;
 }
 .card .header {
   margin-bottom:5px;
+  margin-left: 17px;
 }
 .card img{
   width:100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.virtual{
+  padding:30px 30px 20px;
+  font-family: arial;
+  font-size: 15px;
+  color: #FF6633;
+  border-bottom: 3px solid #FF6633;
+}
+
+.titlu{
+  text-align: center;
+  font-size: 40px;
+  color: #000066;
+}
+
+.titlu2{
+  text-align: right;
+  font-size: 20px;
+  color: #FF6633;;
+  margin-right: 50px;
+}
+
+.img-market{
+  margin: 5px;
+  width:99%;
+  /*padding-bottom: 10px;*/
+  border-radius: 15px ;
+  height: 100%;
+}
+
+.goods{
+  margin-left: 50px;
+  font-size: 20px;
+  color: #003366;
+}
+
+
+#searchName {
+  border-radius: 20px;
+  font-size: 15px;
 }
 
 #form1 {
@@ -44,10 +90,14 @@ button {
   outline: none !important;
   border: none;
   background: transparent;
+  /*float:right;*/
 }
 
 button:hover {
   box-shadow: 0 5px 5px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  background-color: #6495ED;
+  /*color: #000066;*/
+  color: white;
 }
 
 .login100-form-btn {
@@ -58,7 +108,8 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 20px;
+  /*padding: 0 20px;*/
+  /*text-align: center;*/
   width: 100%;
   height: 30px;
   background-color: #EF4C00;
@@ -68,7 +119,8 @@ button:hover {
   color: #fff;
   line-height: 1.2;
   text-transform: uppercase;
-
+  padding-left: 50px;
+  padding-right: 50px;
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -77,17 +129,23 @@ button:hover {
 
 #div1 {
   display: inline-block;
-  margin-left: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 #div2 {
   display: inline-block;
-  margin-left: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
 }
 
 #div3 {
   display: inline-block;
-  margin-left: 30px;
+  margin-left: 200px;
+  margin-right: 50px;
   margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  /*float: right;*/
+  /*text-align: center;*/
+  border-radius: 20px;
 }

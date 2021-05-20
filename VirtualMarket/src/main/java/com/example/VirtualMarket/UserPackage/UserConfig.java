@@ -17,6 +17,7 @@ import java.util.Set;
 public class UserConfig {
 
     @Bean
+
     CommandLineRunner commandLineRunner(UserRepository userRepository,
                                         AuthorityRepository authorityRepository,
                                         PasswordEncoder passwordEncoder) {

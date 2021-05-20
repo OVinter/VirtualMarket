@@ -5,11 +5,14 @@ import {Router} from '@angular/router';
 import jwt_decode from 'jwt-decode';
 import { GetUsersService } from './getUsersService';
 
+
 @Component({
   selector: 'app-dummy',
   templateUrl: './adminView.component.html',
   styleUrls: ['./adminView.component.css']
 })
+
+
 export class AdminViewComponent implements OnInit {
 
   flag: any;
