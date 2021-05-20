@@ -14,10 +14,7 @@ export class SignInComponent implements OnInit {
 
   errorMessage: string;
 
-  // loginService: LoginService;
-
   constructor(private router: Router, private loginService: LoginService) {
-    // this.loginService = loginService;
   }
 
 

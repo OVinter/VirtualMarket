@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {HttpClient, HttpErrorResponse} from '@angular/common/http';
 import {Product} from '../shared/Product';
 import {Router} from '@angular/router';
-import {GetProductsService} from './myProductsService';
-import jwt_decode from 'jwt-decode';
+import {GetMyProductsService} from './myProductsService';
 
 @Component({
   selector: 'app-dummy',
@@ -14,14 +13,13 @@ export class MyProductsComponent implements OnInit {
 
   products: any;
   flag: boolean;
-  flagAdmin: boolean;
   deleteProduct: any;
   productId: number;
 
-  constructor(private getProductsService: GetProductsService, private router: Router) { }
+  constructor(private getProductsService: GetMyProductsService, private router: Router) { }
 
   ngOnInit(): void {
-
+    // this.flag = localStorage.getItem('currentUser');
     this.flag = true;
     if (localStorage.getItem('currentUser') === null) {
       this.flag = false;
@@ -31,15 +29,14 @@ export class MyProductsComponent implements OnInit {
     } else {
       console.log(localStorage.getItem('currentUser'));
     }
-
   }
 
   public GetProducts(): any {
-    this.getProductsService.GetProducts().subscribe(
+    const idUser = localStorage.getItem('idUser');
+    this.getProductsService.GetProducts(idUser).subscribe(
       (response: Product[]) => {
         this.products = response;
         console.log(this.products);
-        // this.router.navigate(['/home']);
       },
       (error: HttpErrorResponse) => {
         alert(error.message);
@@ -63,7 +60,8 @@ export class MyProductsComponent implements OnInit {
   }
 
   public onDeleteProduct(product: Product): void {
-    this.getProductsService.deleteProduct(product.id).subscribe(
+    const idUser = localStorage.getItem('idUser');
+    this.getProductsService.deleteProduct(product.id, idUser).subscribe(
       (response: void) => {
         console.log(response);
         this.GetProducts();

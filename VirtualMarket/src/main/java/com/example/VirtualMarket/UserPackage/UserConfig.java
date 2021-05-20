@@ -17,7 +17,10 @@ import java.util.Set;
 public class UserConfig {
 
     @Bean
-    CommandLineRunner commandLineRunner(UserRepository userRepository,AuthorityRepository authorityRepository, PasswordEncoder passwordEncoder) {
+
+    CommandLineRunner commandLineRunner(UserRepository userRepository,
+                                        AuthorityRepository authorityRepository,
+                                        PasswordEncoder passwordEncoder) {
 
         Set<Authority> s = new HashSet<>();
         Authority a = new Authority();
@@ -37,9 +40,9 @@ public class UserConfig {
             u.setActivated(true);
             u.setAuthorities(s);
             if(userRepository.findOneWithAuthoritiesByUserPhoneNumber("9999").isEmpty()) {
-              authorityRepository.save(a);
-              authorityRepository.save(b);
-              userRepository.saveAll(
+                authorityRepository.save(a);
+                authorityRepository.save(b);
+                userRepository.saveAll(
                         List.of(u)
                 );
             }

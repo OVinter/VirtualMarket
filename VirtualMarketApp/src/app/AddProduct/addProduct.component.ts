@@ -19,6 +19,7 @@ export class AddProductComponent implements OnInit {
   }
 
   addProduct(): any {
-    this.addProductService.AddProduct(this.model).subscribe();
+    const idUser = localStorage.getItem('idUser');
+    this.addProductService.AddProduct(this.model, idUser).subscribe();
   }
 }

@@ -25,14 +25,7 @@ export class LoginService {
 
   }
   Login(model: Register): any{
-    // let params = new HttpParams().set("model", model); //Create new HttpParams
-    // const params = new HttpParams().append('model', model);
-    // const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-
-    // console.log(params);
     console.log(model);
-    // tslint:disable-next-line:max-line-length
-    // return this.http.get<any>(this.UrlLogin + '/login', {headers: new HttpHeaders({ 'Content-Type': 'application/json', params: model })});
     const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json'}) };
     return this.http.post<any>(this.UrlLogin, JSON.stringify(model), httpOptions)
       .pipe(map(user => {
@@ -57,27 +50,14 @@ export class LoginService {
 
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
-
-      // A client-side or network error occurred. Handle it accordingly.
       console.error('An error occurred:', error.error.message);
     } else {
-
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
       console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error}`);
     }
-
-    // return an observable with a user-facing error message
     this.errorData = {
       errorTitle: 'Oops! Request for document failed',
       errorDesc: 'Something bad happened. Please try again later.'
     };
     return throwError(this.errorData);
   }
-
-  // CreateUser(register: Register): any {
-  //   const httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' }) };
-  //   console.log(register);
-  //   return this.http.post<Register[]>(this.UrlRegister + '/register', register, httpOptions)
-  // }
 }
